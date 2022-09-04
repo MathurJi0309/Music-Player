@@ -7,7 +7,40 @@
     <body>
         
         <h1>
-            Render thje from ejs file
+            TODO List
         </h1>
+        <form action="/create-list" method="POST">
+            <h5>DESCRIPTION</h5>
+                    <input type="text" name="description" required placeholder="what do you need to do?">
+                    <div class="divflex">
+                        <p>CATEGORY</p>
+                    <select name="category" required >
+                        <option >choose a category</option>
+                        <option >Work</option>
+                        <option >Personal</option>
+                        <option >Clean</option>
+                        <option >other</option>
+                    </select>
+                    <label for="duedate">Due Date</label>
+                    <input type="date" id="duedate" name="date" required>
+                    <input type="submit">
+                    </div>
+        </form>
+        <div>
+            <ul>
+                <%for(let i of todo_Lists){%>
+                    <li>
+                        <p><%=i.description%></p>
+                        <p><%=i.category%></p>
+                        <p><%=i.date%></p>
+
+
+
+                    </li>
+                    
+                    
+                    <%}%>
+            </ul>
+        </div>
     </body>
  </html>

@@ -9,12 +9,26 @@ app.set('view engine','ejs');
 app.set('views',path.join(__dirname,'views'));
 
 
-var list=[
-    
+var todoList=[
+    {
+    description:"for my",
+    category:"other",
+    date:"05/05/2022"
+}
+
+
 ]
 app.get('/',function(req,res){
-    return res.render('home',{title:"your todo list"});
+    return res.render('home',{
+        title:"your todo list",
+        todo_Lists:todoList
+    });
 })
+
+app.post('/create-list',function(req,res){
+    return res.redirect('back');
+})
+
 app.listen(port,function(err){
     if(err){
         console.log('Error in running the server',err);
