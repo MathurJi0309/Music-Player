@@ -1,0 +1,10 @@
+#main-div{
+    height: 80vh;
+    width: 60vw;
+    border: 2px solid black;
+    margin: auto;
+    padding: 50px;
+}
+#App-name{
+    color:grey;
+}
