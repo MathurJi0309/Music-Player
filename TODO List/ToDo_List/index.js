@@ -63,15 +63,18 @@ app.post('/create-list',function(req,res){
 
 
 app.get('/delete-items',function(req,res){
+
     console.log(req.query);
-    let description=req.query.description;
+    let id=req.query.id;
 
-    let descriptionIndex=todoList.findIndex(items => items.description==description);
-    if(descriptionIndex !=-1){
-        todoList.splice(descriptionIndex,1);
-
-    }
-    return res.redirect('back');
+    Todo.findByIdAndDelete(id,function(err){
+        if(err){
+            console.log('error in deleting an object from database');
+            return;
+        }
+        return res.redirect('back');
+    })
+   
 
 })
 
