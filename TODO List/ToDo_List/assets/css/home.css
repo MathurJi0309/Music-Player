@@ -1,13 +1,16 @@
 body{
     text-align: center;
+    margin:0px;
+    background-image: linear-gradient(45deg,green,orange);
+
 }
-#main-div{
-    height: 80vh;
-    width: 60vw;
-    border: 2px solid black;
-    margin: auto;
-    padding: 50px;
+#maindiv{
+    height: auto;
+    width: 60%;
+    justify-content: center;
+    margin-left: 20%;
 }
+
 #App-name{
     color:grey;
 }
@@ -49,8 +52,27 @@ body{
     width: 25px;
     margin-top: 12px;
 }
+#chalender{
+    height: 20px;
+    width: 20px;
+}
+ul{
+    list-style-type: none;
+}
+#showlist{
+    width: 45%;
+}
+.margin{
+    margin: 2px 2px 2px 2px;
+}
+.extramargin{
+    margin: 0px 80px;
+}
 
-
+#btn{
+    border: none;
+    background-color: grey;
+}
 
 
 

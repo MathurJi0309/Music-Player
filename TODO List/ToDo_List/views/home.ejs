@@ -7,64 +7,78 @@
     </head>
     <body>
         
-        <h1>
-            TODO List
-        </h1>
-        <form action="/create-list" method="POST">
-            <h5>DESCRIPTION</h5>
-                    <input type="text" name="description" required placeholder="what do you need to do?">
-                    <div class="divflex">
-                        <p>CATEGORY</p>
-                    <select name="category" required >
-                        <option >choose a category</option>
-                        <option >Work</option>
-                        <option >Personal</option>
-                        <option >Clean</option>
-                        <option >other</option>
-                    </select>
-                    <label for="duedate">Due Date</label>
-                    <input type="date" id="duedate" name="date" required>
-                    
-                    <div id="deleteadd" class="divflex textdeco">
-                        <button>
-                            <a href=""><div id="adddiv"><h1>+ add Task</h1></div></a>
-                        </button>
-                        <button><a href=""><div id="deletediv"><img id="deleteimg"  src="/images/delete.png" >
-                            <span>Delete Task</span>
-                        </div></a></button>
-                    </div>
+        <div id="maindiv">
+            <h1>
+                TODO List
+            </h1>
+            <form action="/create-list" method="POST" class="divflex">
+                <div class="margin">
+                    <h5>DESCRIPTION</h5>
+                        <input type="text" name="description" required placeholder="what do you need to do?">
+                        <div class="divflex margin">
+                            <p class="extramargin">CATEGORY</p>
+                        <select name="category" required >
+                            <option >choose a category</option>
+                            <option >Work</option>
+                            <option >Personal</option>
+                            <option >Clean</option>
+                            <option >other</option>
+                        </select>
+                        <div class="extramargin">
+                            <label for="duedate">Due Date</label>
+                        <input type="date" id="duedate" name="date" required >
+                        </div>
+                </div>
+                        
+                        <div id="deleteadd" class="divflex textdeco">
+                            <button id="btn">
+                                <a href=""><div id="adddiv"><h1>+ add Task</h1></div></a>
+                            </button>
+                        </div>
+    
+    
+    
+                        </div>
+            </form>
+            <div id="showlist">
+                <ul>
+                    <%for(let i of todo_Lists){%>
+                        <li>
+                            <div id="totallist">
+                                <div>
+                                    <a href="/delete-items/?id=<%=i._id%>">
+                                        <img src="/images/delete1.png" id="delete-img">
+                                    </a>
+                                </div>
+        
+                                <div class="divflex just">
+                                <div>
+                                    <p><%=i.description%></p>
 
-
-
-                    </div>
-        </form>
-        <div>
-            <ul>
-                <%for(let i of todo_Lists){%>
-                    <li>
-                        <div id="totallist">
-                            <div>
-                                <a href="/delete-items/?id=<%=i._id%>">
-                                    <img src="/images/delete.png" id="delete-img">
-                                </a>
+                                    <p>
+                                        <span>
+                                            <img src="/images/chalender.png" id="chalender">
+                                        </span>
+                                        <span>
+                                            <%=i.date%>
+                                        </span></p>
+                                </div>
+                                <div>
+                                    <p><%=i.category%></p>
+                                </div>
+                                </div>
                             </div>
     
-                            <div>
-                            <p><%=i.description%></p>
-                            <p><%=i.category%></p>
-                            <p><%=i.date%></p>
-                            </div>
-                        </div>
-
+                            
+    
+    
+                        </li>
                         
-
-
-                    </li>
-                    
-                    
-                    <%}%>
-            </ul>
+                        
+                        <%}%>
+                </ul>
+            </div>
+            <script type="text/javascript" src="/js/home.js"></script>
         </div>
-        <script type="text/javascript" src="/js/home.js"></script>
     </body>
  </html>
