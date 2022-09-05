@@ -7,7 +7,7 @@ const app=express();
 app.set('view engine','ejs');
 
 app.set('views',path.join(__dirname,'views'));
-
+app.use(express.urlencoded());
 
 var todoList=[
     {
@@ -26,7 +26,14 @@ app.get('/',function(req,res){
 })
 
 app.post('/create-list',function(req,res){
-    return res.redirect('back');
+    // return res.redirect('back');
+    console.log(req.body);
+    todoList.push({
+        description:req.body.description,
+        category:req.body.category,
+        date:req.body.date
+    });
+    return res.redirect('/');
 })
 
 app.listen(port,function(err){
