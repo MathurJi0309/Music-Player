@@ -7,7 +7,9 @@ const app=express();
 app.set('view engine','ejs');
 
 app.set('views',path.join(__dirname,'views'));
+//take data from the form and convert into key value pair and put it in to the req.body app.use(express.urlencoded()); is the middle ware here 
 app.use(express.urlencoded());
+app.use(express.static('assets'));
 
 var todoList=[
     {

@@ -1,0 +1,58 @@
+body{
+    text-align: center;
+}
+#main-div{
+    height: 80vh;
+    width: 60vw;
+    border: 2px solid black;
+    margin: auto;
+    padding: 50px;
+}
+#App-name{
+    color:grey;
+}
+#deleteimg{
+    height: 30px;
+    width: 30px;
+    margin-top: 20px;
+}
+#adddiv{
+    margin: 0px 20px;
+}
+#deletediv{
+    margin: 2px 15px;
+}
+#deletediv span{
+    font-size: 30;
+    font-weight: 900;
+}
+#desc{
+    border-width: 0;
+}
+.textdeco a{
+    color: black;
+    text-decoration: none;
+}
+#deleteimg{
+    color: black;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.divflex{
+    display: flex;
+    justify-content: center;
+}
