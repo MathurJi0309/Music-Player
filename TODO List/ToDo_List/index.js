@@ -1,6 +1,9 @@
 const express=require('express');
 const path=require('path');
 const port=8000;
+const db=require('./config/mongoose');
+
+const Todo=require('./models/list')
 
 const app=express();
 //set the view engine property in the app as ejs
@@ -21,21 +24,55 @@ var todoList=[
 
 ]
 app.get('/',function(req,res){
-    return res.render('home',{
-        title:"your todo list",
-        todo_Lists:todoList
-    });
+    Todo.find({},function(err,items){
+        if(err){
+            console.log('Error in fetching the items to the database');
+            return;
+        }
+        return res.render('home',{
+            title:"your todo list",
+            todo_Lists:items
+        });
+
+    })
+    
 })
 
 app.post('/create-list',function(req,res){
     // return res.redirect('back');
-    console.log(req.body);
-    todoList.push({
+    // console.log(req.body);
+    // todoList.push({
+    //     description:req.body.description,
+    //     category:req.body.category,
+    //     date:req.body.date
+    // });
+    Todo.create({
         description:req.body.description,
         category:req.body.category,
         date:req.body.date
-    });
-    return res.redirect('/');
+    },function(err,newitem){
+        if(err){
+            console.log('error in creating a contact!');
+            return ;
+        }
+        console.log('************',newitem);
+        return res.redirect('/');
+    })
+    
+})
+
+
+app.get('/delete-items',function(req,res){
+    console.log(req.query);
+    let description=req.query.description;
+
+    let descriptionIndex=todoList.findIndex(items => items.description==description);
+    if(descriptionIndex !=-1){
+        todoList.splice(descriptionIndex,1);
+
+    }
+    return res.redirect('back');
+
 })
 
 app.listen(port,function(err){

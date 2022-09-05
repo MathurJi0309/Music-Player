@@ -30,7 +30,8 @@
                             <a href=""><div id="adddiv"><h1>+ add Task</h1></div></a>
                         </button>
                         <button><a href=""><div id="deletediv"><img id="deleteimg"  src="/images/delete.png" >
-                            <span>Delete Task</span></div></a></button>
+                            <span>Delete Task</span>
+                        </div></a></button>
                     </div>
 
 
@@ -41,10 +42,21 @@
             <ul>
                 <%for(let i of todo_Lists){%>
                     <li>
-                        <p><%=i.description%></p>
-                        <p><%=i.category%></p>
-                        <p><%=i.date%></p>
+                        <div id="totallist">
+                            <div>
+                                <a href="/delete-items/?description=<%=i.description%>">
+                                    <img src="/images/delete.png" id="delete-img">
+                                </a>
+                            </div>
+    
+                            <div>
+                            <p><%=i.description%></p>
+                            <p><%=i.category%></p>
+                            <p><%=i.date%></p>
+                            </div>
+                        </div>
 
+                        
 
 
                     </li>
