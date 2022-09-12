@@ -1,21 +1,29 @@
 body{
     background-color:rgb(13, 13, 54);
 }
+#header{
+    height: 8vh;
+    width: 100vw;
+    background-color: white;
+}
+#header div{
+    display: inline-block;
+}
 #logo{
     height:75px;
     width: 75px;
     margin-top: 3px;
     margin-left: 5px;
 }
-#header{
-    display: flex;
-    justify-content: space-between;
+#fav{
+    margin-left: -100px;
+    margin-right: 350px;
 }
 #search{
     height:5vh;
     width: 25vw;
     margin-top: 2vh;
-    margin-right: -150px;
+    margin-right: 12pw;
     border: 2px solid whitesmoke;
     border-radius: 5%;
 }
@@ -29,4 +37,31 @@ body{
     border-radius: 50%;
     margin-top: 5px;
     margin-right: 10px;
+}
+#main-container div{
+    display: inline-block;
+}
+#poster{
+    margin-top: 5vh;
+    height: 35vh;
+    width: 60vw;
+    margin-left:10vw ;
+    border: 2px solid white;
+}
+#shiv{
+    height: 90%;
+    width:60% ;
+    margin-top:2vh;
+    margin-left: 20%;
+    position: relative;
+}
+#gazal{
+    margin-left: 0vw;
+}
+#aside{
+    height: 150vh;
+    width: 25vw;
+    margin-left: 2vw;
+    margin-top: 10vh;
+    border: 1px solid white;
 }
