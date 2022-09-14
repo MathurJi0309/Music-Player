@@ -58,6 +58,11 @@
     
 }
 .popular{
+    height:140px;
+    width: 140px;
+    border-radius: 50%;
+}
+.popular1{
     height:100px;
     width: 100px;
     border-radius: 50%;
