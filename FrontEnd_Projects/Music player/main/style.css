@@ -5,11 +5,10 @@ body{
 /*........................................................Header.........................................................................*/
 #header{
     height: 8vh;
-    width: 98vw;
+    width: 100vw;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    position: fixed;
     /*border: 1px solid white;*/
 }
 #logo{
@@ -17,20 +16,23 @@ body{
     width: 75px;
 }
 #search{
-    height:5vh;
-    width: 25vw;
-    border: 2px solid whitesmoke;
     border-radius: 5%;
-    margin-top: 2vh;
+    margin-top: 1%;
 }
 #Searchtext{
-    margin-top: 1vh;
-    margin-left: 1vw;
+    margin-top: 0.2%;
+    margin-left: 5%;
 }
 #userimage img{
     height: 50px;
     width: 50px;
     border-radius: 50%;
+}
+#box{
+    border: 2px solid whitesmoke; 
+    width: 60%; 
+    height: 80%;
+    border-radius: 25px;
 }
 
 
@@ -71,18 +73,19 @@ body{
 
 
 #aside{
-    height: 100vh;
+    height: 90vh;
     width: 20vw;
     margin-left:77vw;
-    margin-top: -270vh;
+    margin-top: -275vh;
     vertical-align: top;
     overflow: scroll;
+    margin-right: 0px;
 
     /*border: 1px solid white;*/
 }
 #main-div{
-    height: 8%;
-    width: 98%;
+    height: 10%;
+    width: 100%;
     /*border: 1px solid white;*/
 }
 #playlist{
@@ -92,10 +95,6 @@ body{
 #lata{
     margin-left: 70%;
     margin-top:15% ;
-}
-#no{
-    margin-top: 55%;
-    margin-left: 75%;
 }
 
 #footer{
