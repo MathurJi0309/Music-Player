@@ -51,10 +51,10 @@
 
 .release{
     margin-top: 13vh;
-    height: 50vh;
+    height: Auto;
     width: 60vw;
     margin-left:10vw ;
-    border: 2px solid white;
+    /*border: 2px solid white;*/
     
 }
 .popular{
@@ -70,9 +70,17 @@
 .type{
     height: 178px;
     width:32%;
-    border: 1px solid white;
+    /*border: 1px solid white;*/
 }
 .typeimg{
     height: 100%;
     width: 100%;
+}
+.latesthindi{
+    height: 100px;
+    width: 100%;
+}
+.hindidiv{
+    height: 200px;
+    width: 15%;
 }

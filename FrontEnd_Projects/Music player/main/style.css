@@ -98,3 +98,8 @@ body{
     margin-left: 75%;
 }
 
+#footer{
+    height: 20vh;
+    width: 100vw;
+    border: 1px solid white;
+}
