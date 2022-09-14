@@ -26,6 +26,10 @@
     flex-direction: row;
     justify-content: space-between;
 }
+.flexex{
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
 .heart{
     height: 25px;
     width: 25px;
@@ -35,7 +39,12 @@
     margin-top: 45%;
 }
 .main-release{
-    height: 200px;
-    width: 40%;
+    height: 150px;
+    width: 30%;
     border: 1px solid white;
+}
+.new{
+    height: 70%;
+    width: 50%;
+    vertical-align: top;
 }
