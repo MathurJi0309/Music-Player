@@ -10,26 +10,87 @@
 
                 </div>
                 <div style="width:100% ; height:10%; border: 1px solid red;">
-                    <h2 style=" margin-left: 42%;" class="font-color">TODO LOST</h2>
+                    <h1 style=" margin-left: 35%; margin-top: 2%;" class="font-color" >TODO LOST</h1>
 
                 </div>
 
                 
-                <div style="width:100% ; height:10%; border: 1px solid red;">
-                    <div>
-                        <h5 class="font-color" style="margin-top:0; margin-left:2%;">Description</h5>
+                <form action="/create-list" method="POST">
+                    <div style="width:100% ; height:10%; border: 1px solid red;">
+                        <div>
+                            <h4 class="font-color" style="margin-top:0; margin-left:2%;">Description</h4>
+                        </div>
+                        <div>
+                            <input type="text" name="description" required placeholder="what do you need to do?" style="margin-top:-3% ; margin-left:2% ; border:none;">
+                        </div>
                     </div>
-                    <div>
-
+                    <div style="width:100% ; height:10%; ">
+                        <div style="width:49%; height:99%; display: inline-block;"> 
+                            <h4 style="margin-top: -10%; margin-left:2%;">CATEGORY</h4>
+                            <select name="category" required style="margin-top:-3% ; margin-left:1% ; border:none;">
+                                <option >choose a category</option>
+                                <option >Work</option>
+                                <option >Personal</option>
+                                <option >Clean</option>
+                                <option >other</option>
+                            </select>
+                            
+                        </div>
+                        <div style="width:49%; height:99%; display: inline-block;">
+                            <label style="margin-top:10%;">Due Date</label>
+                            <div  style="margin-top:6%;" >
+                                <input type="date" name="date" required >
+                            </div>
+                        </div>
                     </div>
+                    <div style="width:100% ; height:10%; border: 1px solid red;" class="flex">
+                        <div style="width:49% ; height:99%; border: 1px solid red; display: inline-block;">
+                            <button>
+                                <a href=""><div ><h1>+ add Task</h1></div></a>
+                            </button>
+                        </div>
+    
+                    </div>
+                </form>
+                <div>
+                    <ul>
+                        <%for(let i of todo_Lists){%>
+                            <li>
+                                <div id="totallist">
+                                    <div>
+                                        <a href="/delete-items/?id=<%=i._id%>">
+                                            <img src="/images/delete1.png" style="height:2.5%; width:2.5%;">
+                                        </a>
+                                    </div>
+            
+                                    <div class="divflex just">
+                                    <div>
+                                        <p><%=i.description%></p>
+    
+                                        <p>
+                                            <span>
+                                                <img src="/images/chalender.png" id="chalender" style="height:2.5%; width:2.5%;">
+                                            </span>
+                                            <span>
+                                                <%=i.date%>
+                                            </span></p>
+                                    </div>
+                                    <div>
+                                        <p><%=i.category%></p>
+                                    </div>
+                                    </div>
+                                </div>
+        
+                                
+        
+        
+                            </li>
+                            
+                            
+                            <%}%>
+                    </ul>
+    
                 </div>
-                <div style="width:100% ; height:10%; border: 1px solid red;">
-
-                </div>
-                <div style="width:100% ; height:10%; border: 1px solid red;">
-
-                </div>
-
             </div>
 
         </div>
