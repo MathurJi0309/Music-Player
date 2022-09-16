@@ -89,5 +89,10 @@ ul{
 
 .divflex{
     display: flex;
-    justify-content: center;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.font-color{
+    color: black;
 }
