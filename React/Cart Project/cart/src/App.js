@@ -1,4 +1,5 @@
-
+import React from 'react';
+import CartItem from './CartItem';
 
 function App() {
   return (
@@ -6,6 +7,7 @@ function App() {
       <h1>
         Cart
       </h1>
+      <CartItem/>
     </div>
   );
 }
