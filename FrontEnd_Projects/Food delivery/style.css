@@ -16,3 +16,30 @@
     padding: 0 20px;
 
 }
+.navbar .nav{
+
+    max-width: 1200px;
+    min-width: 1200px;
+    position: relative;
+    margin: 0 auto;
+    height: 88px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.nav .left{
+    display: flex;
+    align-items: center;
+}
+.nav .left .logo{
+    display: block;
+    height: 49px;
+    margin-right: 16px;
+    transition: transform 0.5s cubic-bezier(0.075, 0.82, 0.165, 1);
+
+}
+
+.left .logo:hover{
+    transform: scale(1.2);
+}
