@@ -141,7 +141,7 @@
     max-width: 1200px;
     min-width: 1200px;
     position: relative;
-    margin:500px auto;
+    margin:0 auto;
     padding-top: 42px;
     top: 80px;
     background: #fff;
@@ -193,6 +193,5 @@
     right: 0;
     top: 31px;
     height: 1px;
-    background:#282c3f ;
 
 }
