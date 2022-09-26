@@ -2,7 +2,7 @@
     text-align: center;
 }
 .bg-red{
-    background:red;
+    
 }
 
 .mx-auto{
@@ -21,6 +21,19 @@
     margin-top: 150px;
     display: flex;
     width: 300px;
-    background-color: black;
+    background-color:rgba(0,0,0,0.7);
     border-radius: 6px;
+
+}
+.xyz{
+    height: 100%;
+    width: 100%;
+    background-size: contain;
+    opacity: 70%;
+    z-index: 1;
+    position: fixed;
+}
+.p{
+    position: relative;
+    z-index: 5;
 }
