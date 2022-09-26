@@ -4,8 +4,8 @@ class CartItem extends React.Component{
     constructor(){
         super();
         this.state={
-            price:999,
-            title:'mobile',
+            price:114352,
+            title:'I-Phone',
             qty:1,
             img:''
         }
@@ -17,6 +17,10 @@ class CartItem extends React.Component{
         });
     }
     decreaseQuantity=()=>{
+        const {qty} =this.state;
+        if(qty===0){
+            return;
+        }
         console.log('this',this.state);
         this.setState({
             qty:this.state.qty-1
@@ -31,7 +35,7 @@ class CartItem extends React.Component{
                 </div>
                 <div className='right-block'>
                     <div style={{fontSize:25}}>{title}</div>
-                    <div style={{color:'#777'}}>Rs:{price}</div>
+                    <div style={{color:'#777'}}>Rs {price} /-</div>
                     <div style={{color:'#777'}}>Qty:{qty}</div>
                     <div className='cart-item-actions'>
                         {/*Buttons*/ }
