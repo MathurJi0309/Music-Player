@@ -21,6 +21,10 @@ class CartItem extends React.Component{
         console.log("this.props",this.props);
          /*const{price,title,qty}=this.state;(while using state now we are using props in the place of the state) */
         const{price,title,qty}=this.props.product;
+        const{product,onIncreaseQuantity,
+            onDecreaseQuantity,
+            onDeleteProduct
+        }=this.props;
         return(
             <div className='cart-item'>
                 <div className='left-block'>
@@ -36,18 +40,19 @@ class CartItem extends React.Component{
                         alt="Increase"  
                         className='action-icons' 
                         src='https://cdn-icons-png.flaticon.com/512/992/992651.png'
-                        onClick={this.increaseQuantity}
+                        onClick={()=>onIncreaseQuantity(product)}
                         />
                         <img 
-                        alt="Decrease"  
+                        alt="Decrease"   
                         className='action-icons' 
                         src='https://cdn-icons-png.flaticon.com/512/992/992683.png'
-                        onClick={this.decreaseQuantity}
+                        onClick={()=>onDecreaseQuantity(product)}
                         />
                         <img 
                         alt="Delete"  
                         className='action-icons' 
                         src='https://cdn-icons-png.flaticon.com/512/484/484662.png'
+                        onClick={()=>onDeleteProduct(product.id)}
                         />
 
 
