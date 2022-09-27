@@ -1,15 +1,6 @@
 import React from 'react';
 
 class CartItem extends React.Component{
-    constructor(){
-        super();
-        this.state={
-            price:114352,
-            title:'I-Phone',
-            qty:1,
-            img:''
-        }
-    }
     increaseQuantity=()=>{
         console.log('this',this.state);
         this.setState({
@@ -27,7 +18,9 @@ class CartItem extends React.Component{
         });
     }
     render(){
-        const{price,title,qty}=this.state;
+        console.log("this.props",this.props);
+         /*const{price,title,qty}=this.state;(while using state now we are using props in the place of the state) */
+        const{price,title,qty}=this.props.product;
         return(
             <div className='cart-item'>
                 <div className='left-block'>
