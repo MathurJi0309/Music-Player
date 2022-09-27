@@ -31,15 +31,15 @@ class Cart extends React.Component{
         }
     }
     handleIncreaseQunatity=(product)=>{
-         console.log('Hey please inc the qty of',product);
-         const {products}=this.state;
-         const index=products.indexOf(product);
+    console.log('Hey please inc the qty of',product);
+    const {products}=this.state;
+    const index=products.indexOf(product);
 
-         products[index].qty +=1;
+    products[index].qty +=1;
 
-         this.setState({
-            products:products
-         });
+    this.setState({
+        products:products
+    });
     }
     handelDecreaseQuantity=(product)=>{
         const {products}=this.state;
