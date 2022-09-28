@@ -12,14 +12,13 @@ class App extends React.Component {
         products:[],
         loading:true
     }
+    this.db=firebase.firestore();
 }
 
 componentDidMount(){
-  firebase
-  .firestore()
+  this.db
   .collection('products')
-  .get()
-  .then((snapshot)=>{
+  .onSnapshot((snapshot)=>{
     console.log(snapshot);
     snapshot.docs.map((doc)=>{
       console.log(doc.data())
@@ -40,11 +39,22 @@ console.log('Hey please inc the qty of',product);
 const {products}=this.state;
 const index=products.indexOf(product);
 
-products[index].qty +=1;
+// products[index].qty +=1;
 
-this.setState({
-    products:products
-});
+// this.setState({
+//     products:products
+// });
+const docRef=this.db.collection('products').doc(products[index].id);
+docRef
+.update({
+  qty:products[index].qty+1
+})
+.then(()=>{
+  console.log('updated successfully')
+})
+.catch((error)=>{
+  console.log('error',error);
+})
 }
 handelDecreaseQuantity=(product)=>{
     const {products}=this.state;
@@ -53,19 +63,39 @@ handelDecreaseQuantity=(product)=>{
     if(products[index].qty===0){
         return;
     }
-    products[index].qty -=1;
+    // products[index].qty -=1;
     
-    this.setState({
-        products
-        /*we can also write like that products:products */
-    })
+    // this.setState({
+    //     products
+    //     /*we can also write like that products:products */
+    // })
+    const docRef=this.db.collection('products').doc(products[index].id);
+docRef
+.update({
+  qty:products[index].qty-1
+})
+.then(()=>{
+  console.log('updated successfully')
+})
+.catch((error)=>{
+  console.log('error',error);
+})
 }
 handelDeleteProduct=(id)=>{
     const{products}=this.state;
-    const items=products.filter((item)=>item.id!==id);
-    /*give the new array hows id is not equal to that product which is deleted*/ 
-    this.setState({
-        products:items
+    // const items=products.filter((item)=>item.id!==id);
+    // /*give the new array hows id is not equal to that product which is deleted*/ 
+    // this.setState({
+    //     products:items
+    // })
+    const docRef=this.db.collection('products').doc(id);
+    docRef
+    .delete()
+    .then(()=>{
+      console.log('delete successfully');
+    })
+    .catch((error)=>{
+      console.log('error:',error);
     })
 
 }
@@ -88,6 +118,22 @@ getCartTotal =()=>{
   });
   return total;
 }
+addProduct=()=>{
+  this.db
+  .collection('products')
+  .add({
+    img:'',
+    price:300,
+    qty:3,
+    title:'Bag'
+  })
+  .then((docRef)=>{
+    console.log('the item added successfully in the collect',docRef)
+  })
+  .catch((error)=>{
+    console.log('error',error);
+  })
+}
   render(){
     const {products,loading} =this.state;
   return (
@@ -95,6 +141,7 @@ getCartTotal =()=>{
       <Navbar
       count={this.getCartCount()}
       />
+      <button onClick={this.addProduct} Style={{padding:20, fontSize:20}}>Add a Product</button>
       <Cart
       products={products}
       onIncreaseQunatity={this.handleIncreaseQunatity} 
