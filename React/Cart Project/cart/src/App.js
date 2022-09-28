@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor(){
     super();
     this.state={
-        products:[]
+        products:[],
+        loading:true
     }
 }
 
@@ -21,7 +22,16 @@ componentDidMount(){
   .then((snapshot)=>{
     console.log(snapshot);
     snapshot.docs.map((doc)=>{
-      console.log(doc.data());
+      console.log(doc.data())
+    })
+    const products=snapshot.docs.map((doc)=>{
+      const data =doc.data();
+      data['id']=doc.id;
+      return data;
+    })
+    this.setState({
+      products,
+      loading:false
     })
   })
 }
@@ -79,7 +89,7 @@ getCartTotal =()=>{
   return total;
 }
   render(){
-    const {products} =this.state;
+    const {products,loading} =this.state;
   return (
     <div className="App">
       <Navbar
@@ -91,6 +101,7 @@ getCartTotal =()=>{
       onDecreaseQuantity={this.handelDecreaseQuantity}
       onDeleteProduct={this.handelDeleteProduct}
       />
+      {loading && <h1>Loading Products....</h1>}
       <div style={{padding:10,fontSize:20}}>
         TOTAL:{this.getCartTotal()} /-
       </div>
