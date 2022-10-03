@@ -1,4 +1,4 @@
-$('#btn').click(call);
+$('#searchbtn').click(call);
 function call(){
     var xhrRequest=new XMLHttpRequest();
     xhrRequest.onload=function(){
