@@ -2,3 +2,11 @@
     height: 98vh;
     width: 98vw;
 }
+#favlink{
+    color: rgba(0, 0, 0,50%);
+    text-decoration: none;
+}
+#favlink:hover{
+    color: rgba(0, 0, 0,100%);
+    transition: 500ms;
+}

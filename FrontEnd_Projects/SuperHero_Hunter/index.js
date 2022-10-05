@@ -1,7 +1,6 @@
 var superHeroArray=[];
 var list=document.getElementById('list');
 var superHeroInput=document.getElementById('superHeroValue');
-
 var filterList=[];
 superHeroInput.addEventListener('keyup',()=>{
     let val=superHeroInput.value.toLowerCase();
@@ -27,7 +26,7 @@ function addSuperHeroToList(result){
     list.innerHTML="";
     result.map((item)=>{
         var li=document.createElement('li');
-        li.innerHTML=`<p>${item.name}</p>,<img>${item.thumbnail.path+item.thumbnail.extension}</img>`;
+        li.innerHTML=`<p>${item.name}</p>,<img src="${item.thumbnail.path}" type="${item.thumbnail.extension}"></img>,<img src="image/fav.png" style="height:20px; width:20px; margin-left:90%;"></img>`;
         list.append(li); 
     })
 }
