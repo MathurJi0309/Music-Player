@@ -1,8 +1,9 @@
-import {ADD_MOVIES,ADD_FAVOURITE} from '../actions'
+import {ADD_MOVIES,ADD_FAVOURITE,REMOVE_FROM_FAVOURITES,SET_SHOW_FAVOURITES} from '../actions'
 
 const intialMovieState={
     list:[],
-    favourites:[]
+    favourites:[],
+    showFavourites:false
 }
 //in making using if else us eswitch case which is better for the look
 export default function moives (state=intialMovieState,action){
@@ -23,6 +24,17 @@ export default function moives (state=intialMovieState,action){
             return{
                 ...state,
                 favourites:[action.movie,...state.favourites]
+            }
+        case REMOVE_FROM_FAVOURITES:
+                const filteredArray=state.favourites.filter(movie=>movie.Title !== action.movie.Title)
+                return{
+                    ...state,
+                    favourites:filteredArray
+                }
+        case SET_SHOW_FAVOURITES:
+            return{
+                ...state,
+                showFavourites:action.val
             }
         default:
             return state;

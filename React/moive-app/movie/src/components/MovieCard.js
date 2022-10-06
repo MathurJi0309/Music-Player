@@ -1,5 +1,5 @@
 import React from 'react';
-import { addFavourite } from '../actions';
+import { addFavourite,removefromfavourites} from '../actions';
 
 class MovieCard extends React.Component{
     handelFavouriteClick = ()=>{
@@ -7,7 +7,8 @@ class MovieCard extends React.Component{
         this.props.dispatch(addFavourite(movie))
     }
     handelUnFavouriteClick = () =>{
-
+        const {movie} =this.props;
+        this.props.dispatch(removefromfavourites(movie));
     }
     render(){
     const {movie,isFavourite}=this.props;
