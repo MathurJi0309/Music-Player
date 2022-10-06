@@ -9,15 +9,26 @@ class App extends React.Component{
     const {store}=this.props;
     store.subscribe(()=>{
       console.log('UPDATED');
+      this.forceUpdate();
     })
-    this.forceUpdate();
+    
     // make api call here
     //now we have to use the dispatch action here
     store.dispatch(addMovies(data));
     console.log('STATE',this.props.store.getState());
   }
+
+  isMovieFavourite = (movie) =>{
+    const {favourites}=this.props.store.getState();
+    const index=favourites.indexOf(movie);
+    if(index!==-1){
+      //found the moive
+      return true;
+    }
+    return false;
+  }
   render(){
-    const {list}=this.props.store.getState()// before our sttae is simply th array but now it is a object
+    const {list}=this.props.store.getState()// before our sttae is simply th array but now it is a object now our state have lsist of arrya so use list
 
     console.log('RENDER',this.props.store.getState());
     return (
@@ -30,7 +41,12 @@ class App extends React.Component{
         </div>
         <div className="list">
           {list.map((movie,index) =>(
-            <MovieCard movie={movie} key={`movies-${index}`} />// we have to give the key specific so we use it here as index and pass in data.map index with the movie 
+            <MovieCard 
+            movie={movie} 
+            key={`movies-${index}`} 
+            dispatch={this.props.store.dispatch} 
+            isFavourite={this.isMovieFavourite(movie)}
+            />// we have to give the key specific so we use it here as index and pass in data.map index with the movie 
           ))}
         </div>
 
