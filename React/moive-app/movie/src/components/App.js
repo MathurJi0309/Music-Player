@@ -2,6 +2,7 @@ import React from 'react';
 import {data} from '../data';
 import Navbar from './Navbar';
 import MovieCard from './MovieCard';
+import {addMovies} from '../actions';
 
 class App extends React.Component{
   componentDidMount(){
@@ -12,15 +13,14 @@ class App extends React.Component{
     this.forceUpdate();
     // make api call here
     //now we have to use the dispatch action here
-    store.dispatch({
-      type:'ADD_MOVIES',
-      movies:data
-    })
+    store.dispatch(addMovies(data));
     console.log('STATE',this.props.store.getState());
   }
   render(){
-    const movies=this.props.store.getState()
-  return (
+    const {list}=this.props.store.getState()// before our sttae is simply th array but now it is a object
+
+    console.log('RENDER',this.props.store.getState());
+    return (
     <div className="App">
       <Navbar/>
       <div className="main">
@@ -29,7 +29,7 @@ class App extends React.Component{
           <div className="tab">Favourites</div>
         </div>
         <div className="list">
-          {movies.map((movie,index) =>(
+          {list.map((movie,index) =>(
             <MovieCard movie={movie} key={`movies-${index}`} />// we have to give the key specific so we use it here as index and pass in data.map index with the movie 
           ))}
         </div>
