@@ -38,8 +38,12 @@ function addSuperHeroToList(result){
         style="height:40px; width:40px;"></img>
         <p style="display:inline-block margin-left:20%;">${item.name}</p> 
         </a>
-        </><button id="add-to-fav" onclick="addToFav({Name:'${item.name}',photo:'${item.thumbnail.path+"."+item.thumbnail.extension}'})">add to favourites</button>`;
+        </><button data-id=${item.id} class='addToFav'>add to favourites</button>
+        <a href="detail.html?id=${item.id}" target="blank">More Detail</a>`;
         list.append(li);
+        li.getElementsByClassName('addToFav')[0].addEventListener('click',function(){
+            addItemToLS(item.id);
+        })
 
     })
 }

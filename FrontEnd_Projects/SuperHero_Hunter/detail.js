@@ -1,24 +1,32 @@
-const names = document.getElementById("selectHeroName");
-const image = document.getElementById("selectHeroImage");
-const power = document.getElementById("selectHeroPower");
-const bio = document.getElementById("selectHeroBio");
+var id = document.getElementById('herodetail');
+const heroname=document.getElementById('selectHeroName');
+const heroId='';
 
-// fetching the api
-var http = new XMLHttpRequest();
-http.onreadystatechange = function() {
-    if (this.status == 200) {
-        const response = JSON.parse(http.response);
-        if(response.data === "error"){
-            console.log("error fetching data");
-            return;
-        }
+function findGetParameter(parameterName) {
+    var result = null,
+        tmp = [];
+    location.search
+        .substr(1)
+        .split("&")
+        .forEach(function (data) {
+          tmp = item.split("=");
+          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+        });
+    return result;
+}
 
-        //showing the data on screen
-        names.innerHTML = response.data.results.name;
-        image.setAttribute("src", response.data.results.thumbnail.path+"."+response.data.results.thumbnail.extension);
-        
-    }
-};
+async function getSuperHeroDetail(){
+    let id =findGetParameter('id');
+    var data =await fetch(`https://gateway.marvel.com/v1/public/characters/${id}?ts=1&apikey=ed58f40fc34db4a3acfc80e1bac20ac8&hash=90b839ceda08471f2e4549c79d75fd30`);
+    var resp=await data.json();
+    var data=await resp.json();
+    data=data.data.results[0];
+    heroname.innerHTML =`<div class="abc"><p>${data.name}</p>`; 
+    `
+    <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"
+        style="height:40px; width:40px;"></img>
+    </div>`;
+        list.append(li);
+}
 
-http.open("GET", "https://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=ed58f40fc34db4a3acfc80e1bac20ac8&hash=90b839ceda08471f2e4549c79d75fd30"+localStorage.setItem("select"), true);
-http.send();
+getSuperHeroDetail(); 
