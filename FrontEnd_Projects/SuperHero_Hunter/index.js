@@ -1,7 +1,13 @@
 var superHeroArray=[];
 var list=document.getElementById('list');
 var superHeroInput=document.getElementById('superHeroValue');
+var favlists=document.getElementById('favlists');
 var filterList=[];
+var favourites=document.getElementsByClassName('id');
+var favhero=[];
+
+
+
 superHeroInput.addEventListener('keyup',()=>{
     let val=superHeroInput.value.toLowerCase();
     filterList=superHeroArray.filter((item)=>{
@@ -26,9 +32,48 @@ function addSuperHeroToList(result){
     list.innerHTML="";
     result.map((item)=>{
         var li=document.createElement('li');
-        li.innerHTML=`<p>${item.name}</p>,<img src="${item.thumbnail.path}" type="${item.thumbnail.extension}"></img>,<img src="image/fav.png" style="height:20px; width:20px; margin-left:90%;"></img>`;
-        list.append(li); 
+        li.innerHTML=`
+        <a >
+        <img src="${item.thumbnail.path+"."+item.thumbnail.extension}"
+        style="height:40px; width:40px;"></img>
+        <p style="display:inline-block margin-left:20%;">${item.name}</p> 
+        </a>
+        </><button id="add-to-fav" onclick="addToFav({Name:'${item.name}',photo:'${item.thumbnail.path+"."+item.thumbnail.extension}'})">add to favourites</button>`;
+        list.append(li);
+
     })
 }
 
+
+
+function addSuperHeroToList1(results){
+    
+    results.map((item)=>{
+        var li=document.createElement('li');
+        li.innerHTML=`
+        <img src="${item.photo}">
+        <p>${item.Name}</p>`;
+        favlists.append(li);
+
+    })
+}
+
+
+function addToFav(hero){
+    favhero.push(hero);
+    console.log('arrayofhero',favhero);
+    addSuperHeroToList1(favhero);
+}
+
+// function addfavheroinlist(favlist){
+//     favlist.map()
+// }
+
+
+
+
 getSuperHerocharacters();
+
+
+
+
