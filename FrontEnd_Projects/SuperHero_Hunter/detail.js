@@ -21,9 +21,9 @@ async function getSuperHeroDetail(){
                 li.innerHTML=`
                 <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"
                 style="height:150px; width:150px; margin-top:10%; border-radius:15px;"></img>
-                <p style="display:inline-block margin-left:20%; background-color:rgba(255,255,255,75%)">${data.name}</p>
-                <p style="background-color:rgba(255,255,255,55%); border-radius:10px;">${data.description}</p> 
-                </><button data-id=${id} class='addToFav'>Add to favourites</button>`;
+                <p style="display:inline-block margin-left:20%; background-color:rgba(255,255,255,75%); font-size:1.5rem;">${data.name}</p>
+                <div style="height:autopx; width:70%; margin-left:15%;"><p style="background-color:rgba(255,255,255,55%); border-radius:10px; font-size:1.25rem;overflow: scroll; height: 200px;">${data.description}</p></div> 
+                </><button data-id=${id} class='addToFav' style="border-radius:10px; cursor:pointer;">Add to favourites</button>`;
                 list.append(li);
                 li.getElementsByClassName('addToFav')[0].addEventListener('click',function(){
                     addItemToLS(data.id);

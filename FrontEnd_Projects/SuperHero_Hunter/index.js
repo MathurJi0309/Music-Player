@@ -6,6 +6,10 @@ var filterList=[];
 var favourites=document.getElementsByClassName('id');
 var favhero=[];
 
+window.onload=function(){
+    document.getElementById('my_audio').play();
+}
+
 
 
 superHeroInput.addEventListener('keyup',()=>{
@@ -33,13 +37,24 @@ function addSuperHeroToList(result){
     result.map((item)=>{
         var li=document.createElement('li');
         li.innerHTML=`
-        <a >
+        <div style="display:flex; flex-direct:row; justify-content:space-between;">
+        <div >
+        <a style="display:flex; flex-direct:row;">
+        <div>
         <img src="${item.thumbnail.path+"."+item.thumbnail.extension}"
-        style="height:40px; width:40px;"></img>
-        <p style="display:inline-block margin-left:20%;">${item.name}</p> 
+        style="height:75px; width:75px; border-radius:10px;"></img>
+        </div>
+        <div>
+        <p style="margin-left:20%; font-size:1.25rem;">${item.name}</p>
+        </div> 
         </a>
-        </><button data-id=${item.id} class='addToFav'>add to favourites</button>
-        <a href="detail.html?id=${item.id}" target="blank">More Detail</a>`;
+        </div>
+        <div >
+        </><button data-id=${item.id} class='addToFav' style="border-radius:10px; margin-left:-50%;">add to favourites</button>
+        <a href="detail.html?id=${item.id}" target="blank" style="text-decoration:none; margin-left:-50%; background-color:white; border-radius:10px; margin-top:10px; color:black; height:15%; width:100%; text-align:center;">More Detail</a>
+        </div>
+        </div>
+        `;
         list.append(li);
         li.getElementsByClassName('addToFav')[0].addEventListener('click',function(){
             addItemToLS(item.id);
