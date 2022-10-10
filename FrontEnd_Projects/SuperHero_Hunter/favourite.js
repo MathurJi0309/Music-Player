@@ -19,6 +19,7 @@ async function getAllSuperHero(){
                 list.append(li);
                 li.getElementsByClassName('removeFromFav')[0].addEventListener('click',function(){
                     removeItemFromLS(data.id);
+                    window.location.reload();
                 })
     })
 }
