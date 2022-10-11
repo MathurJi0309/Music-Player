@@ -5,13 +5,13 @@ var favlists=document.getElementById('favlists');
 var filterList=[];
 var favourites=document.getElementsByClassName('id');
 var favhero=[];
-
+//.............................................................Add music which is played in the bcakground................................................................
 window.onload=function(){
     document.getElementById('my_audio').play();
 }
 
 
-
+//.............................................................Add event listener for search from search bar........................................
 superHeroInput.addEventListener('keyup',()=>{
     let val=superHeroInput.value.toLowerCase();
     filterList=superHeroArray.filter((item)=>{
@@ -24,6 +24,8 @@ superHeroInput.addEventListener('keyup',()=>{
     addSuperHeroToList(filterList);
     
 })
+
+//.............................................................function for fetch hero from API.........................................
 async function getSuperHerocharacters(){
     var resp=await fetch('https://gateway.marvel.com/v1/public/characters?limit=100&ts=1&apikey=ed58f40fc34db4a3acfc80e1bac20ac8&hash=90b839ceda08471f2e4549c79d75fd30');
     var data=await resp.json();
@@ -32,26 +34,34 @@ async function getSuperHerocharacters(){
     addSuperHeroToList(superHeroArray);
 
 }
+//.............................................................Add hero in list.........................................
+
 function addSuperHeroToList(result){
     list.innerHTML="";
     result.map((item)=>{
         var li=document.createElement('li');
         li.innerHTML=`
         <div class="js-main-div">
+            <div >
+                <a class="js-a">
+                    <div>
+                        <img src="${item.thumbnail.path+"."+item.thumbnail.extension}"
+                            class="js-img">
+                        </img>
+                    </div>
+                    <div>
+                        <p class="js-name">${item.name}</p>
+                    </div> 
+                </a>
+            </div>
         <div >
-        <a class="js-a">
-        <div>
-        <img src="${item.thumbnail.path+"."+item.thumbnail.extension}"
-        class="js-img"></img>
-        </div>
-        <div>
-        <p class="js-name">${item.name}</p>
-        </div> 
-        </a>
-        </div>
-        <div >
-        </><button data-id=${item.id} class='addToFav js-fav'>add to favourites</button>
-        <a href="detail.html?id=${item.id}" target="blank" class="js-detail">More Detail</a>
+            </>
+            <button data-id=${item.id} class='addToFav js-fav'>
+                add to favourites
+            </button>
+            <a href="detail.html?id=${item.id}" target="blank" class="js-detail">
+                More Detail
+            </a>
         </div>
         </div>
         `;
@@ -63,26 +73,7 @@ function addSuperHeroToList(result){
     })
 }
 
-
-
-function addSuperHeroToList1(results){
-    
-    results.map((item)=>{
-        var li=document.createElement('li');
-        li.innerHTML=`
-        <img src="${item.photo}">
-        <p>${item.Name}</p>`;
-        favlists.append(li);
-
-    })
-}
-
-
-function addToFav(hero){
-    favhero.push(hero);
-    console.log('arrayofhero',favhero);
-    addSuperHeroToList1(favhero);
-}
+//.............................................................Aad calling function..........................................................
 
 
 

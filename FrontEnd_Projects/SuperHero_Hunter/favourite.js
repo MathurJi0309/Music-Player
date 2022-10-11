@@ -1,9 +1,11 @@
 var list=document.getElementById('list');
 
+//.............................................................Add reload the music as page load.........................................
 window.onload=function(){
     document.getElementById('my_audio').play();
 }
 
+//.............................................................get all superhero by id from fetch.........................................
 
 async function getAllSuperHero(){
     var favouriteSuperArray =getItemFromLS();
@@ -39,5 +41,7 @@ async function getAllSuperHero(){
                 })
     })
 }
+
+//.............................................................Add function call.....................................................................
 
 getAllSuperHero();

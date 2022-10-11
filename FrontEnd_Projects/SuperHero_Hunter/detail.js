@@ -1,4 +1,4 @@
-
+//.............................................................fetch the id from the url.........................................
 function findGetParameter(parameterName) {
     var result = null,
         tmp = [];
@@ -6,11 +6,13 @@ function findGetParameter(parameterName) {
         .substr(1)
         .split("&")
         .forEach(function (item) {
-          tmp = item.split("=");
-          if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
+            tmp = item.split("=");
+            if (tmp[0] === parameterName) result = decodeURIComponent(tmp[1]);
         });
     return result;
 }
+
+//.............................................................Add function to get super hero fro detail by id ftech url.........................................
 
 async function getSuperHeroDetail(){
     let id =findGetParameter('id');
@@ -42,4 +44,6 @@ async function getSuperHeroDetail(){
                 })
 }
 
+
+//.............................................................Add function call.........................................
 getSuperHeroDetail(); 

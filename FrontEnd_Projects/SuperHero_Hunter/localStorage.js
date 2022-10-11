@@ -1,6 +1,6 @@
 //make same key for every entry
 const FAV_KEY = 'superhero';
-
+//.........................................................add hero from list ..................................................................
 function addItemToLS(item){
 	//item --> string  
 
@@ -21,7 +21,7 @@ function addItemToLS(item){
 	
 	localStorage.setItem(FAV_KEY,JSON.stringify(favSuperHeroArray));
 }
-
+//.........................................................get hero in list ..................................................................
 function getItemFromLS(){
 	var favSuperHeroArray = JSON.parse(localStorage.getItem(FAV_KEY));
 	if(!favSuperHeroArray){
@@ -30,6 +30,7 @@ function getItemFromLS(){
 	return favSuperHeroArray;
 }
 
+//.........................................................fremove hero from list ..................................................................
 
 function removeItemFromLS(item){
 	var favSuperHeroArray = getItemFromLS();
