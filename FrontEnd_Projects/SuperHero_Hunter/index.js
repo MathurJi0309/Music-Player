@@ -37,21 +37,21 @@ function addSuperHeroToList(result){
     result.map((item)=>{
         var li=document.createElement('li');
         li.innerHTML=`
-        <div style="display:flex; flex-direct:row; justify-content:space-between;">
+        <div class="js-main-div">
         <div >
-        <a style="display:flex; flex-direct:row;">
+        <a class="js-a">
         <div>
         <img src="${item.thumbnail.path+"."+item.thumbnail.extension}"
-        style="height:75px; width:75px; border-radius:10px;"></img>
+        class="js-img"></img>
         </div>
         <div>
-        <p style="margin-left:20%; font-size:1.25rem;">${item.name}</p>
+        <p class="js-name">${item.name}</p>
         </div> 
         </a>
         </div>
         <div >
-        </><button data-id=${item.id} class='addToFav' style="border-radius:10px; margin-left:-50%;">add to favourites</button>
-        <a href="detail.html?id=${item.id}" target="blank" style="text-decoration:none; margin-left:-50%; background-color:white; border-radius:10px; margin-top:10px; color:black; height:15%; width:100%; text-align:center;">More Detail</a>
+        </><button data-id=${item.id} class='addToFav js-fav'>add to favourites</button>
+        <a href="detail.html?id=${item.id}" target="blank" class="js-detail">More Detail</a>
         </div>
         </div>
         `;
@@ -83,11 +83,6 @@ function addToFav(hero){
     console.log('arrayofhero',favhero);
     addSuperHeroToList1(favhero);
 }
-
-// function addfavheroinlist(favlist){
-//     favlist.map()
-// }
-
 
 
 

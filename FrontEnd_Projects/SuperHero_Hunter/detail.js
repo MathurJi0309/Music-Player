@@ -19,11 +19,23 @@ async function getSuperHeroDetail(){
     data=data.data.results[0];
         var li=document.createElement('li');
                 li.innerHTML=`
-                <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"
-                style="height:150px; width:150px; margin-top:10%; border-radius:15px;"></img>
-                <p style="display:inline-block margin-left:20%; background-color:rgba(255,255,255,75%); font-size:1.5rem;">${data.name}</p>
-                <div style="height:autopx; width:70%; margin-left:15%;"><p style="background-color:rgba(255,255,255,55%); border-radius:10px; font-size:1.25rem;overflow: scroll; height: 200px;">${data.description}</p></div> 
-                </><button data-id=${id} class='addToFav' style="border-radius:10px; cursor:pointer;">Add to favourites</button>`;
+                <div class="detail-js-div">
+                <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"class="detail-js-img">
+                </img>
+                <p class="detail-js-name">
+                    ${data.name}
+                </p>
+                <div class="js-descr-div">
+                    <p class="js-descr">
+                        ${data.description}
+                    </p>
+                </div> 
+                </>
+                <button data-id=${id} class='addToFav fav-js-btn' >
+                    Add to favourites
+                </button>
+                </div>
+                `;
                 list.append(li);
                 li.getElementsByClassName('addToFav')[0].addEventListener('click',function(){
                     addItemToLS(data.id);

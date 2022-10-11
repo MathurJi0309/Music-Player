@@ -1,5 +1,8 @@
 var list=document.getElementById('list');
 
+window.onload=function(){
+    document.getElementById('my_audio').play();
+}
 
 
 async function getAllSuperHero(){
@@ -10,19 +13,24 @@ async function getAllSuperHero(){
         data=data.data.results[0];
         var li=document.createElement('li');
                 li.innerHTML=`
-               <div style="display:flex; flex-direction:row; justify-content:space-between;">
-               <div>
-               <a >
-               <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"
-               style="height:100px; width:100px; border-radius:10px;"></img>
-               <p style="display:inline-block margin-left:20%; background-color:rgba(255,255,255,70%); border-radius:10px;">${data.name}</p> 
-               </a>
-               </div>
+            <div class="js-main-div">
                 <div>
-                </><button data-id=${data.id} class='removeFromFav' style="margin-top:20%; margin-left:-50%; border-radius:10px;">Remove to favourites</button>
-                <a href="detail.html?id=${data.id}" target="blank" style="text-decoration:none; margin-left:-50%; background-color:white; border-radius:10px; margin-top:10px; color:black; height:15%; width:100%; text-align:center;">More Detail</a>
+                    <a >
+                        <img src="${data.thumbnail.path+"."+data.thumbnail.extension}"
+                        class="fav-js-img"></img>
+                        <p class="fav-js-name">${data.name}</p> 
+                    </a>
                 </div>
-               </div>
+            <div>
+            </>
+            <button data-id=${data.id} class='removeFromFav Unfav-js-btn'>
+                Remove to favourites
+            </button>
+            <a href="detail.html?id=${data.id}" target="blank" class="fav-js-more">
+                More Detail
+            </a>
+                </div>
+            </div>
                 `;
                 list.append(li);
                 li.getElementsByClassName('removeFromFav')[0].addEventListener('click',function(){
