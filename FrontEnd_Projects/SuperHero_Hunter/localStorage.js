@@ -21,7 +21,7 @@ function addItemToLS(item){
 	
 	localStorage.setItem(FAV_KEY,JSON.stringify(favSuperHeroArray));
 }
-//.........................................................get hero in list ..................................................................
+//........................................................get hero in list ..................................................................
 function getItemFromLS(){
 	var favSuperHeroArray = JSON.parse(localStorage.getItem(FAV_KEY));
 	if(!favSuperHeroArray){
