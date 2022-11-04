@@ -1,0 +1,11 @@
+{
+  "name": "music-player",
+  "version": "1.0.0",
+  "description": "Make a music player project with the help of html css",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Mathur_Ji",
+  "license": "ISC"
+}
